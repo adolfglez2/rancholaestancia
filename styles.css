@@ -15,18 +15,21 @@ header {
     color: #fff;
     position: relative;
     text-align: center;
-    height: 150px; /* Ajusta la altura según el tamaño de los GIFs */
+    height: auto; /* Ajuste automático de altura según el contenido */
+    padding: 20px 0; /* Espaciado adicional para los GIFs */
 }
+
 .titulo h1 {
-    font-size: 2em;
+    font-size: 1.5em; /* Tamaño del texto ajustado para pantallas pequeñas */
     margin: 0;
     padding: 10px 0;
 }
 
-
 header img.gif-izquierda, header img.gif-derecha {
     position: absolute;
-    height: 100px; /* Ajusta la altura según el tamaño de los GIFs */
+    height: auto; /* Altura automática según el contenido */
+    max-height: 60px; /* Máxima altura para mantener la proporción */
+    width: auto; /* Mantener la proporción de la imagen */
 }
 
 header img.gif-izquierda {
@@ -50,10 +53,11 @@ nav ul {
     padding: 0;
     display: flex;
     justify-content: center;
+    flex-wrap: wrap; /* Asegura que los botones se ajusten a varias líneas si es necesario */
 }
 
 nav ul li {
-    margin: 0 10px;
+    margin: 5px 10px;
 }
 
 nav ul li a {
@@ -64,6 +68,7 @@ nav ul li a {
     text-decoration: none;
     border-radius: 5px;
     transition: background-color 0.3s;
+    font-size: 14px; /* Tamaño del texto ajustado */
 }
 
 nav ul li a:hover {
@@ -71,10 +76,11 @@ nav ul li a:hover {
 }
 
 main {
-    padding: 20px;
+    padding: 10px;
     text-align: center;
     flex: 1;
 }
+
 h1 {
     margin-bottom: 20px;
 }
@@ -87,8 +93,8 @@ h1 {
 
 .galeria a img {
     width: 100%;
-    height: 150px; /* Establece una altura fija para todas las imágenes */
-    object-fit: cover; /* Hace que la imagen cubra completamente el contenedor manteniendo el aspecto */
+    height: 150px; /* Altura fija para las imágenes */
+    object-fit: cover;
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     transition: transform 0.3s;
@@ -97,6 +103,7 @@ h1 {
 .galeria a img:hover {
     transform: scale(1.05);
 }
+
 .social-share {
     display: flex;
     justify-content: center;
@@ -116,7 +123,6 @@ h1 {
 .social-share img:hover {
     transform: scale(1.2);
 }
-
 
 footer {
     background-color: #2c3e50;
@@ -140,12 +146,13 @@ button:hover {
 }
 
 form {
-    max-width: 500px;
+    max-width: 100%;
     margin: 0 auto;
+    padding: 10px;
 }
 
 input[type="text"], input[type="email"], textarea {
-    width: 100%;
+    width: calc(100% - 22px); /* Ajuste para padding y border */
     padding: 10px;
     margin: 10px 0;
     border: 1px solid #ccc;
@@ -164,6 +171,7 @@ input[type="submit"] {
 input[type="submit"]:hover {
     background-color: #2980b9;
 }
+
 /* Estilo adicional para el campo de fecha */
 #fecha {
     padding: 10px;
@@ -171,7 +179,7 @@ input[type="submit"]:hover {
     margin-bottom: 10px;
     border-radius: 5px;
     border: 1px solid #ccc;
-    width: 100%;
+    width: calc(100% - 22px); /* Ajuste para padding y border */
     max-width: 300px;
     display: block;
     margin: 20px auto;
@@ -186,71 +194,43 @@ input[type="submit"]:hover {
     }
 
     .gif-izquierda, .gif-derecha {
-        width: 50px;
+        max-height: 50px; /* Ajuste del tamaño de los GIFs */
+        width: auto; /* Mantener la proporción de la imagen */
     }
 
     nav ul {
-        flex-direction: row;
-        align-items: center;
+        flex-direction: row; /* Mantener los botones en fila */
+        flex-wrap: wrap; /* Permitir que los botones se ajusten en múltiples líneas */
     }
 
     nav ul li {
-        margin: 5px 0;
+        margin: 5px;
     }
 
     nav ul li a {
-        font-size: 16px;
-        padding: 8px 16px;
+        font-size: 14px; /* Tamaño del texto ajustado */
+        padding: 8px 12px; /* Ajuste de padding */
+    }
+
+    .galeria {
+        grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+    }
+
+    .galeria a img {
+        height: 100px; /* Altura fija ajustada */
+    }
+
+    .social-share {
+        flex-direction: row; /* Mantener los íconos en fila */
+    }
+
+    .social-share a {
+        margin: 5px;
+    }
+
+    .social-share img {
+        width: 30px; /* Tamaño ajustado */
+        height: 30px;
     }
 }
 
-/* Para tabletas (de 481px a 768px) */
-@media only screen and (min-width: 481px) and (max-width: 768px) {
-    .titulo h1 {
-        font-size: 1.5em;
-    }
-
-    .gif-izquierda, .gif-derecha {
-        width: 60px;
-    }
-
-    nav ul {
-        flex-direction: row;
-        flex-wrap: wrap;
-        justify-content: center;
-    }
-
-    nav ul li {
-        margin: 5px 10px;
-    }
-
-    nav ul li a {
-        font-size: 17px;
-        padding: 9px 18px;
-    }
-}
-
-/* Para pantallas de escritorio grandes (más de 768px) */
-@media only screen and (min-width: 769px) {
-    .titulo h1 {
-        font-size: 2em;
-    }
-
-    .gif-izquierda, .gif-derecha {
-        width: 80px;
-    }
-
-    nav ul {
-        flex-direction: row;
-        justify-content: center;
-    }
-
-    nav ul li {
-        margin: 0 15px;
-    }
-
-    nav ul li a {
-        font-size: 18px;
-        padding: 10px 20px;
-    }
-}
