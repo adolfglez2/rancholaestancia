@@ -177,18 +177,80 @@ input[type="submit"]:hover {
     margin: 20px auto;
 }
 
-/* Diseño responsivo */
-@media (max-width: 768px) {
+//* Responsividad */
+
+/* Para dispositivos móviles (hasta 480px) */
+@media only screen and (max-width: 480px) {
+    .titulo h1 {
+        font-size: 1.2em;
+    }
+
+    .gif-izquierda, .gif-derecha {
+        width: 50px;
+    }
+
     nav ul {
         flex-direction: column;
         align-items: center;
     }
 
     nav ul li {
-        margin: 10px 0;
+        margin: 5px 0;
     }
 
-    header img.gif-izquierda, header img.gif-derecha {
-        height: 50px; /* Ajusta la altura según el tamaño de los GIFs */
+    nav ul li a {
+        font-size: 16px;
+        padding: 8px 16px;
+    }
+}
+
+/* Para tabletas (de 481px a 768px) */
+@media only screen and (min-width: 481px) and (max-width: 768px) {
+    .titulo h1 {
+        font-size: 1.5em;
+    }
+
+    .gif-izquierda, .gif-derecha {
+        width: 60px;
+    }
+
+    nav ul {
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    nav ul li {
+        margin: 5px 10px;
+    }
+
+    nav ul li a {
+        font-size: 17px;
+        padding: 9px 18px;
+    }
+}
+
+/* Para pantallas de escritorio grandes (más de 768px) */
+@media only screen and (min-width: 769px) {
+    .titulo h1 {
+        font-size: 2em;
+    }
+
+    .gif-izquierda, .gif-derecha {
+        width: 80px;
+    }
+
+    nav ul {
+        flex-direction: row;
+        justify-content: center;
+    }
+
+    nav ul li {
+        margin: 0 15px;
+    }
+
+    nav ul li a {
+        font-size: 18px;
+        padding: 10px 20px;
     }
 }
