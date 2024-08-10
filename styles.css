@@ -177,7 +177,7 @@ input[type="submit"]:hover {
     margin: 20px auto;
 }
 
-//* Responsividad */
+/* Responsividad */
 
 /* Para dispositivos móviles (hasta 480px) */
 @media only screen and (max-width: 480px) {
@@ -190,7 +190,7 @@ input[type="submit"]:hover {
     }
 
     nav ul {
-        flex-direction: column;
+        flex-direction: row;
         align-items: center;
     }
 
