@@ -25,8 +25,7 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
     function cambiarImagen(n) {
-        var objeto= {nombre:"pedro",edad:20};
-console.log(objeto);
+       
         imagenIndex = (imagenIndex + n + imagenes.length) % imagenes.length;
         mostrarImagen(imagenes[imagenIndex]);
     }
