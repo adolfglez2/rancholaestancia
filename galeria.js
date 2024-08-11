@@ -3,22 +3,44 @@ document.addEventListener('DOMContentLoaded', function () {
     const modalImg = document.getElementById('img01');
     const captionText = document.getElementById('caption');
     const closeBtn = document.getElementsByClassName('cerrar')[0];
+    const prevBtn = document.getElementsByClassName('prev')[0];
+    const nextBtn = document.getElementsByClassName('next')[0];
 
-    document.querySelectorAll('.galeria .imagen').forEach(item => {
+    let imagenes = [];
+    let imagenIndex = 0;
+
+    document.querySelectorAll('.galeria .imagen').forEach((item, index) => {
         item.addEventListener('click', function (e) {
             e.preventDefault();
-            const imgSrc = this.getAttribute('data-imagen');
-            modal.style.display = 'block';
-            modalImg.src = imgSrc;
-            captionText.textContent = this.querySelector('img').alt;
+            imagenes = Array.from(document.querySelectorAll('.galeria .imagen')).map(img => img.getAttribute('data-imagen'));
+            imagenIndex = index;
+            mostrarImagen(imagenes[imagenIndex]);
         });
     });
+
+    function mostrarImagen(src) {
+        modal.style.display = 'block';
+        modalImg.src = src;
+        captionText.textContent = document.querySelector(`.galeria .imagen[data-imagen="${src}"] img`).alt;
+    }
+
+    function cambiarImagen(n) {
+        imagenIndex = (imagenIndex + n + imagenes.length) % imagenes.length;
+        mostrarImagen(imagenes[imagenIndex]);
+    }
 
     closeBtn.addEventListener('click', function () {
         modal.style.display = 'none';
     });
 
-    // Cierra el modal si el usuario hace clic fuera de la imagen
+    prevBtn.addEventListener('click', function () {
+        cambiarImagen(-1);
+    });
+
+    nextBtn.addEventListener('click', function () {
+        cambiarImagen(1);
+    });
+
     window.addEventListener('click', function (e) {
         if (e.target === modal) {
             modal.style.display = 'none';
