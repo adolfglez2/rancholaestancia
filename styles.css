@@ -261,7 +261,7 @@ input[type="submit"]:hover {
 }
 
 /* Responsividad */
-@media only screen and (min-width: 481px) and (max-width: 768px) {
+@media only screen and (min-width: 470px) and (max-width: 768px) {
     .modal-contenido {
         max-width: 85%;
         max-height: 75vh;
@@ -274,7 +274,7 @@ input[type="submit"]:hover {
 }
 
 /* Para dispositivos móviles (hasta 480px) */
-@media only screen and (max-width: 480px) {
+@media only screen and (max-width: 470px) {
     .titulo h1 {
         font-size: 1.2em;
     }
