@@ -23,7 +23,6 @@ header {
     padding: 10px 0;
 }
 
-
 header img.gif-izquierda, header img.gif-derecha {
     position: absolute;
     height: 100%; /* Ajusta la altura para adaptarse al tamaño del header */
@@ -77,6 +76,7 @@ main {
     text-align: center;
     flex: 1;
 }
+
 h1 {
     margin-bottom: 20px;
 }
@@ -94,7 +94,7 @@ h1 {
     object-fit: cover; /* Hace que la imagen cubra completamente el contenedor manteniendo el aspecto */
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    transition: transform 0.3s;.3s;
+    transition: transform 0.3s;
 }
 
 .galeria a:hover {
@@ -169,8 +169,8 @@ h1 {
 }
 .prev {
     left: 10px;
-   }
-   .next {
+}
+.next {
     right: 10px; /* Ajusta la posición horizontal de la flecha siguiente */
     border-radius: 3px 0 0 3px;
 }
@@ -178,7 +178,6 @@ h1 {
 .prev:hover, .next:hover {
     background-color: rgba(0, 0, 0, 0.8);
 }
-
 
 .social-share {
     display: flex;
@@ -199,7 +198,6 @@ h1 {
 .social-share img:hover {
     transform: scale(1.2);
 }
-
 
 footer {
     background-color: #2c3e50;
@@ -247,6 +245,7 @@ input[type="submit"] {
 input[type="submit"]:hover {
     background-color: #2980b9;
 }
+
 /* Estilo adicional para el campo de fecha */
 #fecha {
     padding: 10px;
@@ -260,32 +259,28 @@ input[type="submit"]:hover {
     margin: 20px auto;
 }
 
-/* Responsividad */
-@media only screen and (min-width: 470px) and (max-width: 768px) {
-    .modal-contenido {
-        max-width: 85%;
-        max-height: 75vh;
+@media only screen and (max-width: 720px) {
+    body {
+        font-size: 14px;
     }
 
-    .prev, .next {
-        padding: 14px;
-        font-size: 22px;
+    header {
+        height: 100px; /* Reduce la altura del header para pantallas pequeñas */
     }
-}
 
-/* Para dispositivos móviles (hasta 480px) */
-@media only screen and (max-width: 470px) {
     .titulo h1 {
         font-size: 1.2em;
     }
 
-    .gif-izquierda, .gif-derecha {
-        width: 50px;
+    header img.gif-izquierda, header img.gif-derecha {
+        height: 80px; /* Ajusta la altura de los GIFs */
+        max-height: 80px;
     }
 
     nav ul {
-        flex-direction: row;
-        align-items: center;
+        flex-direction: row; 
+        padding: 0;
+        justify-content: center;
     }
 
     nav ul li {
@@ -293,58 +288,93 @@ input[type="submit"]:hover {
     }
 
     nav ul li a {
+        font-size: 14px;
+        padding: 8px 12px;
+    }
+
+    main {
+        padding: 15px;
+    }
+
+    .galeria {
+        grid-template-columns: repeat(auto-fit, minmax(120px, 1fr)); /* Reduce el tamaño mínimo de las imágenes */
+    }
+
+    .galeria img {
+        height: 120px; /* Ajusta la altura de las imágenes */
+    }
+
+    .modal-contenido {
+        max-width: 90%;
+        max-height: 70vh;
+    }
+
+    .social-share img {
+        width: 30px;
+        height: 30px;
+    }
+
+    footer {
+        padding: 5px 0;
+    }
+}
+
+
+@media only screen and (min-width: 721px) and (max-width: 800px) {
+    body {
         font-size: 16px;
-        padding: 8px 16px;
     }
-}
 
-/* Para tabletas (de 481px a 768px) */
-@media only screen and (min-width: 470px) and (max-width: 768px) {
+    header {
+        height: 130px; /* Ajusta la altura del header para pantallas medianas */
+    }
+
     .titulo h1 {
-        font-size: 1.5em;
+        font-size: 1.8em;
     }
 
-    .gif-izquierda, .gif-derecha {
-        width: 60px;
+    header img.gif-izquierda, header img.gif-derecha {
+        height: 100px; /* Ajusta la altura de los GIFs */
+        max-height: 100px;
     }
 
     nav ul {
-        flex-direction: row;
-        flex-wrap: wrap;
+        flex-direction: row; /* Asegura que los botones estén en una fila horizontal */
         justify-content: center;
     }
 
     nav ul li {
-        margin: 5px 10px;
+        margin: 5px 15px; /* Espaciado más amplio para pantallas medianas */
     }
 
     nav ul li a {
-        font-size: 17px;
-        padding: 9px 18px;
-    }
-}
-
-/* Para pantallas de escritorio grandes (más de 768px) */
-@media only screen and (min-width: 769px) {
-    .titulo h1 {
-        font-size: 2em;
+        font-size: 15px;
+        padding: 10px 15px;
     }
 
-    .gif-izquierda, .gif-derecha {
-        width: 80px;
+    main {
+        padding: 20px;
     }
 
-    nav ul {
-        flex-direction: row;
-        justify-content: center;
+    .galeria {
+        grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); /* Ajusta el tamaño mínimo de las imágenes */
     }
 
-    nav ul li {
-        margin: 0 15px;
+    .galeria img {
+        height: 140px; /* Ajusta la altura de las imágenes */
     }
 
-    nav ul li a {
-        font-size: 18px;
-        padding: 10px 20px;
+    .modal-contenido {
+        max-width: 85%;
+        max-height: 75vh;
+    }
+
+    .social-share img {
+        width: 35px;
+        height: 35px;
+    }
+
+    footer {
+        padding: 10px 0;
     }
 }
